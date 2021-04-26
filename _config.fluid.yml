@@ -1,0 +1,50 @@
+post:
+  banner_img: /img/test.png
+
+fun_features:
+  typing: # 为 subtitle 添加打字机效果
+    enable: true
+    typeSpeed: 70 # 打印速度
+    cursorChar: "❤️" # 游标字符
+    loop: false # 是否循环播放效果
+
+index:
+  #顶部图片
+  banner_img: /img/test.png
+  slogan:
+    enable: true
+    text: "为学日益，为道日损。损之又损，以至于无为。"
+
+navbar:
+  blog_title: QiongXing与识
+
+force_https: true
+
+favicon: /img/medium32x32.ico
+
+about:
+  avatar: /img/avatar.jpg
+  name: "QiongXing"
+  intro: "坚持每天学习，锻炼的菜鸟"
+  icons:
+    - {
+        class: "iconfont icon-github-fill",
+        link: "https://github.com/qiongxing",
+        tip: "GitHub",
+      }
+    - {
+        class: "iconfont icon-douban-fill",
+        link: "https://douban.com",
+        tip: "豆瓣",
+      }
+    - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
+
+footer:
+  content: '
+    <span>奥特曼保护小怪兽</span>
+    '
+  statistics:
+    enable: true
+    source: "busuanzi" # 可选 leancloud | busuanzi  根据自己需求选择
+    pv_format: "总访问量 {} 次" # 显示的文本，{}是数字的占位符（必须包含)，下同
+    uv_format: "总访客数 {} 人"
