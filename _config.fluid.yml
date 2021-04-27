@@ -1,5 +1,10 @@
 post:
   banner_img: /img/test.png
+  comments:
+    enable: true
+    type: valine
+valine:
+  shortname: fluid
 
 fun_features:
   typing: # 为 subtitle 添加打字机效果
@@ -22,6 +27,20 @@ force_https: true
 
 favicon: /img/medium32x32.ico
 
+#代码块配置
+code:
+  copy_btn: true
+  highlight:
+    enable: true
+    line_number: true
+    lib: "highlightjs"
+    highlightjs:
+      style: "Github Gist"
+      bg_color: false
+    prismjs:
+      style: "default"
+      preprocess: true
+
 about:
   avatar: /img/avatar.jpg
   name: "QiongXing"
@@ -40,9 +59,9 @@ about:
     - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
 
 footer:
-  content: '
+  content: "
     <span>奥特曼保护小怪兽</span>
-    '
+    "
   statistics:
     enable: true
     source: "busuanzi" # 可选 leancloud | busuanzi  根据自己需求选择
