@@ -1,5 +1,5 @@
 post:
-  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/test.png
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
   comments:
     enable: true
     type: utterances
@@ -20,7 +20,7 @@ fun_features:
 index:
   #顶部图片
   # https://cdn.jsdelivr.net/gh/fluid-dev/hexo-theme-fluid@master/source/img/favicon.png
-  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/test.png
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
   slogan:
     enable: true
     text: "为学日益，为道日损。损之又损，以至于无为。"
