@@ -23,6 +23,7 @@ index:
 navbar:
   blog_title: QiongXing与识
 
+#强制开启https
 force_https: true
 
 favicon: /img/medium32x32.ico
