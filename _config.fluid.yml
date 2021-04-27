@@ -1,10 +1,14 @@
 post:
-  banner_img: /img/test.png
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/test.png
   comments:
     enable: true
-    type: valine
-valine:
-  shortname: fluid
+    type: utterances
+utterances: 
+  repo: qiongxing/qiongxing.github.commit
+  issue-term: "title"
+  label: "✨💬✨"
+  theme: "github-light"
+  crossorigin: "anonymous"
 
 fun_features:
   typing: # 为 subtitle 添加打字机效果
@@ -15,7 +19,8 @@ fun_features:
 
 index:
   #顶部图片
-  banner_img: /img/test.png
+  # https://cdn.jsdelivr.net/gh/fluid-dev/hexo-theme-fluid@master/source/img/favicon.png
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/test.png
   slogan:
     enable: true
     text: "为学日益，为道日损。损之又损，以至于无为。"
@@ -42,6 +47,7 @@ code:
       style: "default"
       preprocess: true
 
+#关于
 about:
   avatar: /img/avatar.jpg
   name: "QiongXing"
@@ -52,12 +58,12 @@ about:
         link: "https://github.com/qiongxing",
         tip: "GitHub",
       }
-    - {
-        class: "iconfont icon-douban-fill",
-        link: "https://douban.com",
-        tip: "豆瓣",
-      }
-    - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
+    # - {
+    #     class: "iconfont icon-douban-fill",
+    #     link: "https://douban.com",
+    #     tip: "豆瓣",
+    #   }
+    - { class: "iconfont icon-qq-fill", qrcode: "/img/qq.png" }
 
 footer:
   content: "
