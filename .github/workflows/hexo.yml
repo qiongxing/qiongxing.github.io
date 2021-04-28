@@ -39,7 +39,7 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - develop
 
 env:
   GIT_USER: QiongXing
