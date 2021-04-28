@@ -1,35 +1,70 @@
-name: deploy my blog
+# name: deploy my blog
+# on:
+#   push:
+#     branches:
+#       - develop
+# jobs:
+#   build:
+#     runs-on: ubuntu-18.04
+#     if: github.event.repository.owner.id == github.event.sender.id
+
+#     steps:
+#       - name: Checkout source 🛎️
+#         uses: actions/checkout@master
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: "12"
+
+#       - name: Install and Build 🔧
+#         run: |
+#           npm install
+#           npm run build
+
+#       - name: Deploy 🚀
+#         uses: JamesIves/github-pages-deploy-action@4.1.1
+#         with:
+#           branch: dev-pages # The branch the action should deploy to.
+#           folder: public # The folder the action should deploy.
+#           ssh-key: ${{ secrets.BLOG_PRIVATE_KEY }}
+
+# - name: setup hexo
+#   env:
+#     BLOG_PRIVATE_KEY: ${{secrets.BLOG_PRIVATE_KEY}}
+#     BRANCH: dev-pages
+
+name: deploy blog
 on:
   push:
     branches:
       - develop
 jobs:
   build:
-    runs-on: ubuntu-18.04
-    if: github.event.repository.owner.id == github.event.sender.id
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source 🛎️
-        uses: actions/checkout@master
-
-      - name: Setup Node.js
+      - name: Checkout source
+        uses: actions/checkout@v1
+        with:
+          ref: hexo
+      - name: Use Node.js ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
-          node-version: "12"
-        
-      - name: Install and Build 🔧
+          version: ${{ matrix.node_version }}
+      - name: Setup hexo
+        env:
+          ACTION_DEPLOY_KEY: ${{ secrets.BLOG_PRIVATE_KEY }}
         run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.email "qiongxing1412@qq.com"
+          git config --global user.name "QiongXing"
+          npm install hexo-cli -g
           npm install
-          npm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
-        with:
-          branch: dev-pages # The branch the action should deploy to.
-          folder: public # The folder the action should deploy.
-          ssh-key: ${{ secrets.BLOG_PRIVATE_KEY }}
-
-      # - name: setup hexo
-      #   env:
-      #     BLOG_PRIVATE_KEY: ${{secrets.BLOG_PRIVATE_KEY}}
-      #     BRANCH: dev-pages
+      - name: Hexo deploy
+        run: |
+          hexo clean
+          hexo d
