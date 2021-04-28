@@ -69,6 +69,7 @@ jobs:
           hexo clean
           hexo g
           hexo d
+          git branch dev-pages
           git checkout dev-pages
           git checkout develop -- public
           git add public
