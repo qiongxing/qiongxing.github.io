@@ -103,7 +103,7 @@ theme: fluid
 deploy:
   type: git
   repository: git@github.com:qiongxing/qiongxing.github.io.git
-  branch: dev-pages
+  branch: develop
 
 
 #压缩资源
