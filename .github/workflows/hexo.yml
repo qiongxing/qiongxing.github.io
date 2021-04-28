@@ -40,34 +40,20 @@ on:
     branches:
       - develop
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout source
+      - name: Checkout
         uses: actions/checkout@master
-        with:
-          ref: develop
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12"
-      - name: Setup hexo
-        env:
-          ACTION_DEPLOY_KEY: ${{ secrets.BLOG_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git config --global user.email "qiongxing1412@qq.com"
-          git config --global user.name "QiongXing"
-          npm install hexo-cli -g
-          npm install
-      - name: Hexo deploy
-        run: |
-          hexo clean
-          hexo g
-          hexo d
 
+      - name: Build and Deploy
+        uses: Forest10/hexo-deploy-action-with-cname@master
+        env:
+          USER_NAME: Forest10 # optional
+          EMAIL: qiongxing1412@qq.com # optional
+          # CNAME: blog.github.com # optional
+          PERSONAL_TOKEN: ${{ secrets.BLOG_PRIVATE_KEY }}
+          PUBLISH_REPOSITORY: qiongxing/qiongxing.github.io # The repository the action should deploy to.
+          BRANCH: dev-pages # The branch the action should deploy to.
+          PUBLISH_DIR: ./public # The folder the action should deploy.
 
