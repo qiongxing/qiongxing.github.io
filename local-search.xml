@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>使用hexo+fluid搭建博客</title>
+    <link href="/2021/04/27/%E4%BD%BF%E7%94%A8hexo-fluid%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
+    <url>/2021/04/27/%E4%BD%BF%E7%94%A8hexo-fluid%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>这是一篇测试文档</title>
+    <link href="/2021/04/27/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/"/>
+    <url>/2021/04/27/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/</url>
+    
+    <content type="html"><![CDATA[<div class="note note-primary">            <p>测试数据</p>          </div>]]></content>
+    
+    
+    <categories>
+      
+      <category>测试数据</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hello</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
