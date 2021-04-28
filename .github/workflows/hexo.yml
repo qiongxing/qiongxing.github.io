@@ -34,24 +34,44 @@
 #     BLOG_PRIVATE_KEY: ${{secrets.BLOG_PRIVATE_KEY}}
 #     BRANCH: dev-pages
 
-name: Build and Deploy
+name: deploy blog
 on:
   push:
     branches:
-      - "develop"
+      - develop
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1.1.0
+      - name: Checkout source
+        uses: actions/checkout@master
         with:
-          submodules: recursive
-      - name: Build and Deploy
-        uses: ApolloZhu/hexo-deploy-action@master
+          ref: develop
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+      - name: Setup hexo
         env:
-          PERSONAL_TOKEN: ${{ secrets.BLOG_PRIVATE_KEY }}
-          PUBLISH_REPOSITORY: qiongxing/qiongxing.github.io # The repository the action should deploy to.
-          BRANCH: dev-pages # The branch the action should deploy to.
-          PUBLISH_DIR: ./public # The folder the action should deploy.
+          ACTION_DEPLOY_KEY: ${{ secrets.BLOG_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.email "qiongxing1412@qq.com"
+          git config --global user.name "QiongXing"
+          npm install hexo-cli -g
+          npm install
+      - name: Hexo deploy
+        run: |
+          hexo clean
+          hexo g
+          hexo clean
+          git checkout dev-pages
+          git checkout develop -- public
+          git add public
+          git commit -m "public merge pages"
+          
 
