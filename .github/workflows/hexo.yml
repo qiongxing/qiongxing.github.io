@@ -47,7 +47,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@master
         with:
-          ref: hexo
+          ref: develop
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
