@@ -119,7 +119,7 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v2
         with:
-          ref: develop
+          ref: dev-pages
           path: ./deploy_git
 
       - name: Setup Node.js
