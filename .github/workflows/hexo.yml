@@ -73,5 +73,6 @@ jobs:
           git checkout develop -- public
           git add public
           git commit -m "public merge pages"
-          
+          git push
+
 
