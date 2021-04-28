@@ -101,7 +101,9 @@ theme: fluid
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ""
+  type: git
+  repository: git@github.com:qiongxing/qiongxing.github.io.git
+  branch: dev-pages
 
 
 #压缩资源
