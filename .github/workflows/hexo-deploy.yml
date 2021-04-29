@@ -4,7 +4,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - develop
+      - main
 
 # 任务
 jobs:
@@ -28,5 +28,5 @@ jobs:
         with:
           ssh-key: ${{ secrets.BLOG_PRIVATE_KEY }}
           # repository-name: qiongxing/qiongxing.github.io #因为是当前项目直接部署，所以不需要指向其他分支
-          branch: dev-pages
+          branch: gh-pages
           folder: public
