@@ -12,6 +12,8 @@ tags:
 如何使用Hexo+Fluid+Github Action搭建博客
 {% endnote %}
 
+<!-- more -->
+
 ## 搭建Hexo
 
 因为Hexo是基于NodeJs的，所以电脑安装了NodeJs，就可以直接安装了，[NodeJs安装地址](http://nodejs.cn/download/)。因为搭建的是Github pages，所以还需要Git，[Git安装地址](https://git-scm.com/downloads)

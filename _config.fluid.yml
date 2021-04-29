@@ -1,6 +1,7 @@
 #文章配置
 post:
   banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
+  default_index_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/posts/default.webp
   comments:
     enable: true
     type: utterances
