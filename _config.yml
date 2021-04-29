@@ -12,7 +12,7 @@ language: zh-CN
 timezone: "Asia/Shanghai"
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://qiongxing.github.io
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -103,7 +103,7 @@ theme: fluid
 deploy:
   type: git
   repository: git@github.com:qiongxing/qiongxing.github.io.git
-  branch: gh-pages
+  branch: dev-pages
 
 
 #压缩资源
