@@ -76,6 +76,13 @@ about:
     #   }
     - { class: "iconfont icon-qq-fill", qrcode: "/img/qq.png" }
 
+page404:
+  enable: true
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
+  banner_img_height: 85
+  banner_mask_alpha: 0.3
+  subtitle: "没有当前文章😭"
+
 footer:
   content: "
     <span>奥特曼保护小怪兽</span>
