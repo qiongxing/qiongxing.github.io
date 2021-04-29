@@ -2,7 +2,8 @@
 post:
   banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
   default_index_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/posts/default.webp
-  comments:
+  #评论
+  comments: 
     enable: true
     type: utterances
 utterances:
@@ -16,9 +17,10 @@ utterances:
 archive:
   banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
 
+#标签
 tag:
   banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
-
+#分类
 category:
   banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
 
@@ -50,10 +52,10 @@ code:
   highlight:
     enable: true
     line_number: true
-    lib: "highlightjs"
+    lib: "prismjs"
     highlightjs:
       style: "Github Gist"
-      bg_color: false
+      bg_color: true
     prismjs:
       style: "default"
       preprocess: true
@@ -93,3 +95,7 @@ footer:
     source: "busuanzi" # 可选 leancloud | busuanzi  根据自己需求选择
     pv_format: "总访问量 {} 次" # 显示的文本，{}是数字的占位符（必须包含)，下同
     uv_format: "总访客数 {} 人"
+
+
+# static_prefix:
+#   highlightjs: https://cdn.jsdelivr.net/npm/highlight.js@10.6.0/
