@@ -1,25 +1,35 @@
+#文章配置
 post:
   banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
   comments:
     enable: true
     type: utterances
-utterances: 
+utterances:
   repo: qiongxing/qiongxing.github.commit
   issue-term: "title"
   label: "✨💬✨"
   theme: "github-light"
   crossorigin: "anonymous"
 
+#归档
+archive:
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
+
+tag:
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
+
+category:
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
+
 fun_features:
   typing: # 为 subtitle 添加打字机效果
     enable: true
     typeSpeed: 70 # 打印速度
-    cursorChar: "❤️" # 游标字符
+    cursorChar: "🐋" # 游标字符
     loop: false # 是否循环播放效果
 
 index:
   #顶部图片
-  # https://cdn.jsdelivr.net/gh/fluid-dev/hexo-theme-fluid@master/source/img/favicon.png
   banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
   slogan:
     enable: true
@@ -49,6 +59,7 @@ code:
 
 #关于
 about:
+  banner_img: https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/home.png
   avatar: /img/avatar.jpg
   name: "QiongXing"
   intro: "坚持每天学习，锻炼的菜鸟"
