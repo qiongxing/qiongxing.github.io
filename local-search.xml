@@ -8,32 +8,19 @@
     <link href="/2021/04/27/%E4%BD%BF%E7%94%A8hexo-fluid%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>/2021/04/27/%E4%BD%BF%E7%94%A8hexo-fluid%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
     
-    <content type="html"><![CDATA[]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>这是一篇测试文档</title>
-    <link href="/2021/04/27/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/"/>
-    <url>/2021/04/27/%E8%BF%99%E6%98%AF%E4%B8%80%E7%AF%87%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/</url>
-    
-    <content type="html"><![CDATA[<div class="note note-primary">            <p>测试数据</p>          </div>]]></content>
+    <content type="html"><![CDATA[<div class="note note-success">            <p>如何使用Hexo+Fluid+Github Action搭建博客</p>          </div><h2 id="搭建Hexo"><a href="#搭建Hexo" class="headerlink" title="搭建Hexo"></a>搭建Hexo</h2><p>因为Hexo是基于NodeJs的，所以电脑安装了NodeJs，就可以直接安装了，<a href="http://nodejs.cn/download/">NodeJs安装地址</a>。因为搭建的是Github pages，所以还需要Git，<a href="https://git-scm.com/downloads">Git安装地址</a></p><h3 id="1-安装Hexo"><a href="#1-安装Hexo" class="headerlink" title="1.安装Hexo"></a>1.安装Hexo</h3><p>使用<code>npm i -g hexo-cli</code>安装，如何需要指定版本可以：<code>hexo-cli@版本号</code></p>]]></content>
     
     
     <categories>
       
-      <category>测试数据</category>
+      <category>其他技术</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Hello</tag>
+      <tag>Hexo</tag>
       
     </tags>
     
