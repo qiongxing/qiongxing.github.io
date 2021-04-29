@@ -1,6 +1,6 @@
 name: Deploy GitHub Pages
 
-# 触发条件：在 push 到 develop 分支后
+# 触发条件：在 push 到 main 分支后
 on:
   push:
     branches:
@@ -13,17 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # 拉取代码
-      - name: Checkout
+      - name: Checkout 🔔
         uses: actions/checkout@v2
         with:
           persist-credentials: false
 
       # 1、生成静态文件
-      - name: Build
+      - name: Build ⏳
         run: npm install && npm run build
 
       # 2、部署到 GitHub Pages
-      - name: Deploy
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           ssh-key: ${{ secrets.BLOG_PRIVATE_KEY }}
