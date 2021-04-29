@@ -103,12 +103,12 @@
 #           npm run build
 #           npm run deploy
 
-name: Hexo Deploy
+name: build and deploy
 
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
@@ -116,18 +116,18 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-      - name: Checkout source
+      - name: Checkout source 🔔
         uses: actions/checkout@v2
         with:
-          ref: develop
+          ref: main
           # path: .deploy_git
 
-      - name: Setup Node.js
+      - name: Setup Node.js 🔧
         uses: actions/setup-node@v1
         with:
           node-version: "12"
 
-      - name: Setup Hexo
+      - name: Setup Hexo ⏳
         env:
           ACTION_DEPLOY_KEY: ${{ secrets.BLOG_PRIVATE_KEY }}
         run: |
@@ -141,7 +141,7 @@ jobs:
           npm install hexo-cli -g
           npm install
 
-      - name: Deploy
+      - name: Deploy 🚀
         run: |
           hexo clean
           hexo deploy

@@ -89,9 +89,9 @@ pagination_dir: page
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
+# include:
+# exclude:
+# ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -103,7 +103,7 @@ theme: fluid
 deploy:
   type: git
   repository: git@github.com:qiongxing/qiongxing.github.io.git
-  branch: dev-pages
+  branch: gh-pages
 
 
 #压缩资源
