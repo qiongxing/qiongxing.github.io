@@ -216,6 +216,6 @@ jobs:
 
 ### 设置pages的Source
 
-这部很简单，在`Settings>Pages>Source`指定部署的分支就可以了，有域名的也可以`Custom domain`指定域名，并且域名解析配置到`<username>.github.io`就行
+这步很简单，在`Settings>Pages>Source`指定部署的分支就可以了，有域名的也可以`Custom domain`指定域名，并且域名解析配置到`<username>.github.io`就行
 
 ![创建密钥](https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/posts/2021/set-pages.png)
