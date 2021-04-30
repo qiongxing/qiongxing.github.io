@@ -121,7 +121,7 @@ all_minifier: true
 
 ## 部署到Github pages上
 
-建立在各位都有github账号的基础上，如果你还没有github账号，可以到[Github](https://github.com/)上注册个账号
+建立在各位都有github账号的基础上，如果你还没有github账号，可以到[Github](https://github.com/)上注册个账号，注册完之后还需要下载`Git`绑定用户数据和`SSH KEYS`，这里就不进行撰写了
 
 ### 创建个人pages页面
 
@@ -138,5 +138,84 @@ all_minifier: true
 将Hexo项目关联到Git仓库
 
 ```sh
+#先确定默认初始化分支为main，因为新的git已经没有master分支了，但是本地init的时候依旧是master，所以要改下默认分支
+git config --global init.defaultBranch main 
 git init
+git remote add origin <复制的ssh地址>
+git pull origin main
+git add .
+git commit -m "first blog commit"
+git push origin main
 ```
+
+以上操作就将博客源数据与仓库绑定了，且上传到了github仓库，可以刷新下github地址，就可以看到上传的数据了
+
+## 使用Github Action持续部署pages
+
+首先我们需要创建一个分支用来存储我们部署后的地址，我创建的部署分支是`gh-pages`,也是别人访问`https://<username>.github.io`时的部署分支，当然也可以自己创建一个仓库来存储部署后的内容，不过如果创建一个仓库，那这个仓库一定要是`public`的
+
+首先，生成我们需要用到的一对密钥，**这一对密钥一定不要上传到git上**
+
+```sh
+ssh-keygen -t rsa -b 4096 -C "deploy key" -f deploy-key -N ""
+```
+
+执行上面步骤可以在执行目录下生成`deploy-key(私钥)`和`deploy-key(公钥)`，打开2个文件，里面存的就是一对加密的字符串了，本质是RSA的一种非对称加密。然后就是需要配置到仓库里面了
+
+>打开博客的仓库，访问`Settings>Secrets>New repository secret`，name可以自己取，推荐用全大写，有标识性，然后将私钥里面的内容复制到Value里面。然后点击`Settings>Deploy keys>Add deploy key`，和公钥的内容复制到`Key`中,`Title`可以随便取，保存后，公钥可能要启用才能生效
+
+![创建密钥](https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/posts/2021/crete-secrets.png)
+
+github action是根据项目根目录检测到`.github>xxx.yml`的文件时，会在一个独立容器中执行执行里面的`yaml`语句。所以我们要在根目录下创建`.github`文件夹，和`deloy.yml`，名称可以随便取，单必须是`.yml`，且可以有多个，下面是我的配置信息
+
+```yaml
+name: Deploy GitHub Pages
+
+# 触发条件：在 push 到 main 分支后
+on:
+  push:
+    branches:
+      - main
+
+# 任务
+jobs:
+  build-and-deploy:
+    # 服务器环境：最新版 Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取代码
+      - name: Checkout 🔔
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      # 1、生成静态文件
+      - name: Build ⏳
+        run: npm install && npm run build
+
+      # 2、部署到 GitHub Pages
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          ssh-key: ${{ secrets.BLOG_PRIVATE_KEY }} #你保存在部署项目的私钥
+          # repository-name: qiongxing/qiongxing.github.io #因为是当前项目直接部署，所以不需要指向其他分支，如果要在其他仓库部署就需要填写
+          branch: gh-pages #部署到的分支
+          folder: public #指定public文件部署到gh-pages
+```
+
+`${{ secrets.BLOG_PRIVATE_KEY }}`会直接获取你在`Secrets`里面创建的私钥，因为我执行的是`npm run build`，所以会在根目录生成一个public文件目录,public就是我们生成的静态部署博客了，然后将public提交到指定分支就可以了
+
+```json
+{
+  "scripts": {
+    "clean": "hexo clean",
+    "build": "npm run clean && hexo generate",
+  },
+}
+```
+
+### 设置pages的Source
+
+这部很简单，在`Settings>Pages>Source`指定部署的分支就可以了，有域名的也可以`Custom domain`指定域名，并且域名解析配置到`<username>.github.io`就行
+
+![创建密钥](https://cdn.jsdelivr.net/gh/qiongxing/qiongxing.github.io@main/source/img/posts/2021/set-pages.png)
